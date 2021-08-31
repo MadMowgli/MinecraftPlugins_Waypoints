@@ -1,0 +1,6 @@
+name: Waypoints
+version: '${project.version}'
+main: me.brabbit.waypoints.Waypoints
+api-version: 1.17
+authors: [ bRabbit ]
+description: Lets players configure waypoints they can teleport to.

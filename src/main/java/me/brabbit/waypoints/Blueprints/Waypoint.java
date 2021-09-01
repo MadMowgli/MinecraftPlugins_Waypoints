@@ -1,5 +1,8 @@
 package me.brabbit.waypoints.Blueprints;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class Waypoint {
 
     // Fields
@@ -50,4 +53,8 @@ public class Waypoint {
         return zCord;
     }
 
+    public String getGson() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 }

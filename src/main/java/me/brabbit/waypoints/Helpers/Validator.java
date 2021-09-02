@@ -16,7 +16,11 @@ public class Validator {
     * 2 = Waypoint with this name already exists
     */
 
+    // Fields
+    private static final int MAX_WAYPOINTS = 15;
 
+
+    // Validation method
     public static int checkWaypoint(Waypoint waypoint) {
 
         // Vars
@@ -25,17 +29,18 @@ public class Validator {
 
         // Populate list
         for(Waypoint globalWaypoint : globalList) {
-            if (globalWaypoint.getPlayerUUID().equals(waypoint.getPlayerUUID())) {
-                playerList.add(globalWaypoint);
-            }
+            if (globalWaypoint.getPlayerUUID().equals(waypoint.getPlayerUUID())) { playerList.add(globalWaypoint); }
         }
 
         // Check for maximum number
-
+        if (playerList.size() > MAX_WAYPOINTS) { return 1; }
 
         // Check for already existing waypoint
+        for (Waypoint waypoint1 : playerList) {
+            if (waypoint.getWaypointID().equalsIgnoreCase(waypoint1.getWaypointID())) { return 2; }
+        }
 
-
+        // Valid waypoint
         return 0;
     }
 

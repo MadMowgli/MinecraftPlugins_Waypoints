@@ -2,9 +2,9 @@ package me.brabbit.waypoints.Commands;
 
 import me.brabbit.waypoints.Blueprints.Waypoint;
 import me.brabbit.waypoints.Helpers.Validator;
+import me.brabbit.waypoints.Waypoints;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,20 +28,23 @@ public class CreateWaypoint implements CommandExecutor {
                     return true;
                 }
 
+                // Create waypoint
+                Location playerLocation = player.getLocation();
+                String world = playerLocation.getWorld().getName();
+                String waypointName = args[0];
+                int x = playerLocation.getBlockX();
+                int y = playerLocation.getBlockY();
+                int z = playerLocation.getBlockZ();
+                Waypoint waypoint = new Waypoint(player.getName(), player.getUniqueId().toString(), world, waypointName, x, y, z);
+
+
                 // Waypoint validation
-                switch (Validator.checkWaypoint()) {
+                switch (Validator.checkWaypoint(waypoint)) {
 
                     // Valid waypoint
                     case 0:
-                        // Get waypoint info
-                        Location playerLocation = player.getLocation();
-                        String world = playerLocation.getWorld().getName();
-                        String waypointName = args[0];
-                        int x = playerLocation.getBlockX();
-                        int y = playerLocation.getBlockY();
-                        int z = playerLocation.getBlockZ();
-                        Waypoint waypoint = new Waypoint(player.getName(), world, waypointName, x, y, z);
-
+                        // Save waypoint
+                        Waypoints.waypoints.add(waypoint);
                         return true;
 
                     // Maximum number of waypoints already reached
@@ -58,7 +61,8 @@ public class CreateWaypoint implements CommandExecutor {
 
             } else {
                 // Console command
-
+                commandSender.sendMessage("[INFORMATION] This is no console command.");
+                return true;
             }
 
         }

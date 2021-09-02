@@ -1,18 +1,46 @@
 package me.brabbit.waypoints;
 
+import me.brabbit.waypoints.Blueprints.Waypoint;
+import me.brabbit.waypoints.Commands.CreateWaypoint;
+import me.brabbit.waypoints.FileHandler.FileHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public final class Waypoints extends JavaPlugin {
+
+    // Globals
+    public static ArrayList<Waypoint> waypoints = new ArrayList<Waypoint>();
 
     @Override
     public void onEnable() {
         // Plugin startup logic
 
+        // Load Gson
+        try {
+            FileHandler.loadJsonFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Register commands
+        this.getCommand("tp.create").setExecutor(new CreateWaypoint());
+        this.getCommand("tp.delete").setExecutor(new CreateWaypoint());
+        this.getCommand("tp.share").setExecutor(new CreateWaypoint());
+        this.getCommand("tp.").setExecutor(new CreateWaypoint());
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+
+        // Save to file
+        try {
+            FileHandler.writeToFile(waypoints);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

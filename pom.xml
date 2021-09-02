@@ -40,7 +40,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\Users\Mowgli\OneDrive\Coding\Programming Languages\Java\Minecraft Plugins\1.17.1\Waypoints\out\Waypoints.jar</outputFile>
+                            <outputFile></outputFile>
                         </configuration>
                     </execution>
                 </executions>

@@ -2,6 +2,7 @@ package me.brabbit.waypoints.Helpers;
 
 import me.brabbit.waypoints.Blueprints.Waypoint;
 import me.brabbit.waypoints.Waypoints;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Validator {
     private static final int MAX_WAYPOINTS = 15;
 
 
-    // Validation method
+    // Validation method for waypoint creation
     public static int checkWaypoint(Waypoint waypoint) {
 
         // Vars
@@ -42,6 +43,32 @@ public class Validator {
 
         // Valid waypoint
         return 0;
+    }
+
+    // Validation method for waypoint deletion
+    public static boolean doesExist(String name, Player player) {
+
+        // Vars
+        ArrayList<Waypoint> globalList = Waypoints.waypoints;
+        ArrayList<Waypoint> playerList = new ArrayList<>();
+
+        // Populate list
+        for(Waypoint globalWaypoint : globalList) {
+            if (globalWaypoint.getPlayerUUID().equals(player.getUniqueId().toString())) {
+                playerList.add(globalWaypoint);
+            }
+        }
+
+        // Check if waypoint exists
+        for(Waypoint waypoint : playerList) {
+            if (waypoint.getWaypointName().equals(name)) {
+                return true;
+            }
+        }
+
+        // None found
+        return false;
+
     }
 
 }

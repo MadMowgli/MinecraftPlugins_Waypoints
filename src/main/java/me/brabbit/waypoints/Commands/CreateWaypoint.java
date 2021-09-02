@@ -49,11 +49,15 @@ public class CreateWaypoint implements CommandExecutor {
 
                     // Maximum number of waypoints already reached
                     case 1:
+                        player.sendMessage(ChatColor.RED + "[WAYPOINT] MAXIMUM NUMBER OF WAYPOINTS REACHED");
+                        player.sendMessage(ChatColor.RED + "[WAYPOINT] EACH PLAYER CAN ONLY CREATE UP TO 15 WAYPOINTS");
+                        player.sendMessage(ChatColor.RED + "[WAYPOINT] DELETE A WAYPOINT USING tp.delete nameofwaypoint");
                         break;
 
                     // Waypoint with this name already exists
                     case 2:
-
+                        player.sendMessage(ChatColor.RED + "[WAYPOINT] WAYPOINT WITH THIS NAME ALREADY EXISTS");
+                        player.sendMessage(ChatColor.RED + "[WAYPOINT] CHOOSE ANOTHER NAME FOR YOUR WAYPOINT");
 
                 }
 
@@ -61,7 +65,7 @@ public class CreateWaypoint implements CommandExecutor {
 
             } else {
                 // Console command
-                commandSender.sendMessage("[INFORMATION] This is no console command.");
+                commandSender.sendMessage("[WAYPOINT] This is no console command.");
                 return true;
             }
 

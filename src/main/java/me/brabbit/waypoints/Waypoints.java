@@ -21,11 +21,12 @@ public final class Waypoints extends JavaPlugin {
         // Plugin startup logic
 
         // Load Gson
-        try {
-            FileHandler.loadJsonFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // BUGGY ATM
+//        try {
+//            FileHandler.loadJsonFromFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         // Register commands
         this.getCommand("tp.create").setExecutor(new CreateWaypoint());

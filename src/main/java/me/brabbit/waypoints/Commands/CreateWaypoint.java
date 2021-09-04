@@ -35,7 +35,7 @@ public class CreateWaypoint implements CommandExecutor {
                 int x = playerLocation.getBlockX();
                 int y = playerLocation.getBlockY();
                 int z = playerLocation.getBlockZ();
-                Waypoint waypoint = new Waypoint(player.getName(), player.getUniqueId().toString(), world, waypointName, x, y, z);
+                Waypoint waypoint = new Waypoint(player.getName(), player.getUniqueId().toString(), world, waypointName, playerLocation, x, y, z);
 
 
                 // Waypoint validation
@@ -45,6 +45,7 @@ public class CreateWaypoint implements CommandExecutor {
                     case 0:
                         // Save waypoint
                         Waypoints.waypoints.add(waypoint);
+                        commandSender.sendMessage(ChatColor.YELLOW + "[WAYPOINTS] WAYPOINT " + args[0] + " CREATED.");
                         return true;
 
                     // Maximum number of waypoints already reached

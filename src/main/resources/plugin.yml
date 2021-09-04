@@ -4,3 +4,13 @@ main: me.brabbit.waypoints.Waypoints
 api-version: 1.17
 authors: [ bRabbit ]
 description: Lets players configure waypoints they can teleport to.
+commands:
+  tp.create:
+    description: Creates a waypoint
+    usage: /tp.create
+  tp.delete:
+    description: Deletes a waypoint
+    usage: /tp.delete
+  tp.t:
+    description: Teleports the player
+    usage: /tp.t

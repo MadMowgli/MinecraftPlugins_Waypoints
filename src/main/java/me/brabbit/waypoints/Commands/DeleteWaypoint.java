@@ -41,6 +41,7 @@ public class DeleteWaypoint implements CommandExecutor {
                             .get();
 
                     Waypoints.waypoints.remove(waypoint);
+                    player.sendMessage(ChatColor.RED + "[WAYPOINT] WAYPOINT " + args[0] + " DELETED");
 
                 }
 

@@ -15,7 +15,7 @@ public class FileHandler {
 
     // Fields
     public static final String FILE_DIR = Waypoints.getPlugin().getDataFolder().getAbsolutePath();
-    public static final String FILE_PATH = FILE_DIR + "Waypoints.json";
+    public static final String FILE_PATH = FILE_DIR + ".json";
 
 
 
@@ -36,7 +36,7 @@ public class FileHandler {
 
 
     //------------------------ Read method - GSON COMPLIANT
-    private static void loadFromFile_GSON() throws IOException {
+    public static void loadFromFile_GSON() throws IOException {
 
         // Vars
         Gson gson = new Gson();
@@ -47,7 +47,9 @@ public class FileHandler {
             Reader reader = new FileReader(file);
             Waypoint[] waypoints = gson.fromJson(reader, Waypoint[].class);
             Waypoints.waypoints = new ArrayList<Waypoint>(Arrays.asList(waypoints));
+            System.out.println("[WAYPOINTS] JSON FILE LOADED.");
         }
+
 
     }
 

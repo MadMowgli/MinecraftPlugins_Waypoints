@@ -7,15 +7,15 @@ import org.bukkit.Location;
 public class Waypoint {
 
     // Fields
-    private String playerName;
-    private String playerUUID;
-    private String worldName;
-    private String waypointName;
-    private String waypointID;
-    private Location location;
-    private int xCord;
-    private int yCord;
-    private int zCord;
+    public String playerName;
+    public String playerUUID;
+    public String worldName;
+    public String waypointName;
+    public String waypointID;
+    public Location location;
+    public int xCord;
+    public int yCord;
+    public int zCord;
 
 
     // Constructor

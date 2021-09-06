@@ -32,7 +32,7 @@ public final class Waypoints extends JavaPlugin {
         // Load Gson
         // BUGGY ATM
         try {
-            FileHandler.loadJsonFromFile();
+            FileHandler.loadFromFile_GSON();
         } catch (IOException e) {
             e.printStackTrace();
         }

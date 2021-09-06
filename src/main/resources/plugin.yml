@@ -14,3 +14,6 @@ commands:
   tp.t:
     description: Teleports the player
     usage: /tp.t
+  tp.list:
+    description: Lists all of the players' waypoints.
+    usage: /tp.list

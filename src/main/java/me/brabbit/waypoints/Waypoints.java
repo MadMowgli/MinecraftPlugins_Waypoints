@@ -1,10 +1,7 @@
 package me.brabbit.waypoints;
 
 import me.brabbit.waypoints.Blueprints.Waypoint;
-import me.brabbit.waypoints.Commands.CreateWaypoint;
-import me.brabbit.waypoints.Commands.DeleteWaypoint;
-import me.brabbit.waypoints.Commands.ShareWaypoint;
-import me.brabbit.waypoints.Commands.Teleport;
+import me.brabbit.waypoints.Commands.*;
 import me.brabbit.waypoints.FileHandler.FileHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,6 +39,7 @@ public final class Waypoints extends JavaPlugin {
         this.getCommand("tp.delete").setExecutor(new DeleteWaypoint());
 //        this.getCommand("tp.share").setExecutor(new ShareWaypoint());
         this.getCommand("tp.t").setExecutor(new Teleport());
+        this.getCommand("tp.list").setExecutor(new ListWaypoints());
     }
 
     @Override

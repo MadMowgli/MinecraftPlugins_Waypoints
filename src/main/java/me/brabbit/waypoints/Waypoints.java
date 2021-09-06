@@ -14,19 +14,28 @@ import java.util.ArrayList;
 public final class Waypoints extends JavaPlugin {
 
     // Globals
+    public static Waypoints plugin;
     public static ArrayList<Waypoint> waypoints = new ArrayList<Waypoint>();
+
+    // Getters
+    public static Waypoints getPlugin() {
+        return plugin;
+    }
 
     @Override
     public void onEnable() {
         // Plugin startup logic
 
+        // Get instance of plugin
+        plugin = this;
+
         // Load Gson
         // BUGGY ATM
-//        try {
-//            FileHandler.loadJsonFromFile();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            FileHandler.loadJsonFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Register commands
         this.getCommand("tp.create").setExecutor(new CreateWaypoint());
@@ -39,11 +48,11 @@ public final class Waypoints extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
 
-        // Save to file
         try {
-            FileHandler.writeToFile(waypoints);
+            FileHandler.writeToFile_GSON(waypoints);
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }

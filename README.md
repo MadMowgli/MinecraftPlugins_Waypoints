@@ -8,4 +8,3 @@ Lets players create waypoints and teleport to them.
 
 ## Future development
 - Allow a max number of waypoints per player
-- 

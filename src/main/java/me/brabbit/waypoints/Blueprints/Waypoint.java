@@ -7,26 +7,22 @@ import org.bukkit.Location;
 public class Waypoint {
 
     // Fields
-    public String playerName;
-    public String playerUUID;
-    public String worldName;
-    public String waypointName;
-    public String waypointID;
-    public Location location;
-    public int xCord;
-    public int yCord;
-    public int zCord;
-
+    private String playerName;
+    private String playerUUID;
+    private String worldName;
+    private String waypointName;
+    private String waypointID;
+    private double xCord;
+    private double yCord;
+    private double zCord;
 
     // Constructor
-
-    public Waypoint(String playerName, String playerUUID, String worldName, String waypointName, Location location, int xCord, int yCord, int zCord) {
+    public Waypoint(String playerName, String playerUUID, String worldName, String waypointName, double xCord, double yCord, double zCord) {
         this.playerName = playerName;
         this.playerUUID = playerUUID;
         this.worldName = worldName;
         this.waypointName = waypointName;
         this.waypointID = playerName + worldName + waypointName;
-        this.location = location;
         this.xCord = xCord;
         this.yCord = yCord;
         this.zCord = zCord;
@@ -34,10 +30,6 @@ public class Waypoint {
 
 
     // Getters
-    public Location getLocation() {
-        return location;
-    }
-
     public String getPlayerName() {
         return playerName;
     }
@@ -58,15 +50,15 @@ public class Waypoint {
         return waypointID;
     }
 
-    public int getxCord() {
+    public double getxCord() {
         return xCord;
     }
 
-    public int getyCord() {
+    public double getyCord() {
         return yCord;
     }
 
-    public int getzCord() {
+    public double getzCord() {
         return zCord;
     }
 

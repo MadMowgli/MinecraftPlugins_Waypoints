@@ -20,7 +20,6 @@ public class Validator {
     // Fields
     private static final int MAX_WAYPOINTS = 15;
 
-
     // Validation method for waypoint creation
     public static int checkWaypoint(Waypoint waypoint) {
 
@@ -68,6 +67,12 @@ public class Validator {
 
         // None found
         return false;
+
+    }
+
+    public static boolean isOnSameWorld(Waypoint waypoint, Player player) {
+
+        return waypoint.getWorldName().equalsIgnoreCase(player.getWorld().getName());
 
     }
 

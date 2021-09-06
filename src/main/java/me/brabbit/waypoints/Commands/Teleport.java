@@ -4,6 +4,7 @@ import me.brabbit.waypoints.Blueprints.Waypoint;
 import me.brabbit.waypoints.Helpers.Validator;
 import me.brabbit.waypoints.Waypoints;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -35,12 +36,17 @@ public class Teleport implements CommandExecutor {
                             .findFirst()
                             .get();
 
-                    player.teleport(waypoint.getLocation());
-                    player.sendMessage(ChatColor.RED + "[WAYPOINT] PLAYER TELEPORTED TO WAYPOINT " + args[0]);
+                    if (Validator.isOnSameWorld(waypoint, player)) {
+
+                        Location location = new Location(player.getWorld(), waypoint.getzCord(), waypoint.getyCord(), waypoint.getzCord());
+                        player.teleport(location);
+                        player.sendMessage(ChatColor.YELLOW + "[WAYPOINT] PLAYER TELEPORTED TO WAYPOINT " + args[0]);
+                    }
 
                 }
 
             }
+
         }
 
         return false;

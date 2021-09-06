@@ -32,10 +32,10 @@ public class CreateWaypoint implements CommandExecutor {
                 Location playerLocation = player.getLocation();
                 String world = playerLocation.getWorld().getName();
                 String waypointName = args[0];
-                int x = playerLocation.getBlockX();
-                int y = playerLocation.getBlockY();
-                int z = playerLocation.getBlockZ();
-                Waypoint waypoint = new Waypoint(player.getName(), player.getUniqueId().toString(), world, waypointName, playerLocation, x, y, z);
+                double x = playerLocation.getX();
+                double y = playerLocation.getY();
+                double z = playerLocation.getZ();
+                Waypoint waypoint = new Waypoint(player.getName(), player.getUniqueId().toString(), world, waypointName, x, y, z);
 
 
                 // Waypoint validation

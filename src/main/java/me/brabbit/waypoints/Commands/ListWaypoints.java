@@ -16,7 +16,7 @@ public class ListWaypoints implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
 
         // Check command spelling & player check
-        if (label.equalsIgnoreCase("YOURCOMMAND")) {
+        if (label.equalsIgnoreCase("tp.list")) {
             if (commandSender instanceof Player) {
                 // Player command
                 Player player = (Player) commandSender;

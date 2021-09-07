@@ -38,7 +38,7 @@ public class Teleport implements CommandExecutor {
 
                     if (Validator.isOnSameWorld(waypoint, player)) {
 
-                        Location location = new Location(player.getWorld(), waypoint.getzCord(), waypoint.getyCord(), waypoint.getzCord());
+                        Location location = new Location(player.getWorld(), waypoint.getxCord(), waypoint.getyCord(), waypoint.getzCord());
                         player.teleport(location);
                         player.sendMessage(ChatColor.YELLOW + "[WAYPOINT] PLAYER TELEPORTED TO WAYPOINT " + args[0]);
                     }

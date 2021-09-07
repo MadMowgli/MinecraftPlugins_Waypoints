@@ -1,6 +1,7 @@
 package me.brabbit.waypoints.FileHandler;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import me.brabbit.waypoints.Blueprints.Waypoint;
 import me.brabbit.waypoints.Waypoints;
@@ -22,7 +23,7 @@ public class FileHandler {
     //------------------------ Write method 2 - GSON compliant
     public static void writeToFile_GSON(ArrayList<Waypoint> listToWrite) throws IOException {
 
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         File file = new File(FILE_PATH);
         Writer writer = new FileWriter(file, false);
 
